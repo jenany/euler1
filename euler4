@@ -1,0 +1,10 @@
+palindromes = []
+
+for i in range(10,100):
+    for x in range(10,100):
+        prod = i*x
+        str_prod = str(prod)
+        if str_prod[0] == str_prod[len(str_prod)-1]:
+            if str_prod[::1] == str_prod[::-1]:
+                palindromes.append(prod)
+print max(palindromes)
