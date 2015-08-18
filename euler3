@@ -1,0 +1,20 @@
+primes = []
+number = 600851475143
+
+def is_prime(x):
+    limit = int(x**.5)+1
+    if x == 2:
+        return True
+    else:
+        for n in range(3,x):
+            if x%n == 0:
+                return False
+            if n > limit:
+                break
+        return True
+
+for i in range(2, int(number**.5)+1):
+    if number%i == 0:
+        primes.append(i)
+
+print max(primes)
