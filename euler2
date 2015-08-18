@@ -1,5 +1,7 @@
 fib_seq = [1, 2]
+
 total = 0
+
 while fib_seq[len(fib_seq)-1] < 4000000:
     last_two_sum = fib_seq[len(fib_seq)-2] + fib_seq[len(fib_seq)-1]
     fib_seq.append(last_two_sum)
