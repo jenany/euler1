@@ -1,1 +1,28 @@
+number = 10
+prime_factors = {}
 
+def is_prime(x):
+    limit = int(x**.5)+1
+    if x == 2:
+        return True
+    else:
+        for n in range(2,x):
+            if x%n == 0:
+                return False
+            if n > limit:
+                break
+        return True
+
+def find_prime_factors(number):
+    for i in range(2, number+1):
+        if number%i == 0 and is_prime(i) and i not in prime_factors:
+            prime_factors[i] = 1
+
+for j in range(2,number+1):
+    find_prime_factors(j)
+
+for k in range(4,number+1):
+    if number not is_prime(k):
+        for key in prime_factors:
+            
+print prime_factors
