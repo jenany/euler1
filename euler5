@@ -1,5 +1,6 @@
-number = 10
+number = 20
 prime_factors = {}
+number_list = range(4,number+1)
 
 def is_prime(x):
     limit = int(x**.5)+1
@@ -21,8 +22,22 @@ def find_prime_factors(number):
 for j in range(2,number+1):
     find_prime_factors(j)
 
-for k in range(4,number+1):
-    if number not is_prime(k):
+for item in number_list:
+    if not is_prime(item):
         for key in prime_factors:
-            
+            count = 0
+            while item%key == 0:
+                item = item/key
+                count += 1
+                if item == key:
+                    count += 1
+                    if count > prime_factors[key]:
+                        prime_factors[key] = count
+                    break
+                    
+answer = 1
+for key in prime_factors:
+    answer *= key**prime_factors[key]
+          
 print prime_factors
+print answer
