@@ -1,5 +1,7 @@
 primes = [2,3]
 count = 2
+test = 5
+
 def is_prime(n):
     limit = int(n**.5)+1
     for item in primes[1:]:
@@ -10,8 +12,9 @@ def is_prime(n):
     return True
 
 while len(primes) < 10001:
-    if is_prime(primes[-1]+2):
-        primes.append(primes[-1]+2)
+    if is_prime(test):
+        primes.append(test)
+    test += 2
 else:
     answer = primes[-1]
 
