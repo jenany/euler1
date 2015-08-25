@@ -4,4 +4,5 @@ for a in xrange(1,333):
         if c == (b**2 + a**2)**.5:
             answer = a*b*c
             print a, b, c
+            break
 print answer
