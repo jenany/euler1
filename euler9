@@ -1,0 +1,7 @@
+for a in xrange(1,333):
+    for b in xrange(a+1,500):
+        c = 1000 - b - a
+        if c == (b**2 + a**2)**.5:
+            answer = a*b*c
+            print a, b, c
+print answer
