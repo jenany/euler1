@@ -1,0 +1,30 @@
+grid = [[True]*4 for i in range(4)]
+grid[3][3] = "Goal"
+
+mark = grid[0][0]
+
+j = 0
+i = 0
+
+def find_goal(i,j,mark):
+    while i < len(grid)-1 and grid[j][i+1]:
+        i += 1
+        mark = grid[j][i]
+        print "poop"
+    else:
+        if mark == "Goal":
+            cound += 1
+        else:
+            grid[j][i] = False
+            j += 1
+            print "i",i
+            print "j",j
+            print "poops"
+            find_goal(i,j,mark)
+"""
+while grid[len(grid)-1][0]:
+    mark = grid[0][0]
+    find_goal()
+"""
+find_goal(i,j,mark)
+print count
