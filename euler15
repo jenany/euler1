@@ -1,60 +1,37 @@
 grid = [[True]*21 for i in range(21)]
-grid[3][3] = "Goal"
 
-mark = grid[0][0]
 count = 0
-"""
-j = 0
-i = 0
-"""
 
-def find_goal(i,j,mark):
+def find_goal(i,j):
     #Test for end of row and value of next point in row.
     while i < len(grid)-1 and grid[j][i+1]:
         i += 1
-        mark = grid[j][i]
-        print "poop"
     else:
         #If mark reaches the end of a row, make that point False.
         if i == len(grid)-1:
             grid[j][i] = False
-            print "i", i
-            print "j", j
-            print "Goal i"
         else:
             #Move mark down column and test for edges again.
-            print "i",i
-            print "j",j
-            print "poops"
             j += 1
             #If mark reaches the end of a column, find the first True instance in that column and make it False.
             if j == len(grid)-1:
-                print "Goal j"
                 k = 0
                 while grid[k][i] == False:
                     k += 1
                 else:
                     grid[k][i] = False
-                    print "k",k
-                    print "i",i
-                    print "grid[0][2]", grid[0][2]
                 #Make all points below or to the right True.
                 for x in range(k+1, len(grid)):
                     for y in range(i+1, len(grid)):
-                        print "x",x
-                        print "y",y
                         grid[x][y] = True
             else:
-                mark = grid[j][i]
-                find_goal(i,j,mark)
+                find_goal(i,j)
 
 while grid[0][0]:
-    mark = grid[0][0]
-    find_goal(0,0,mark)
-    print count
+    find_goal(0,0)
     count +=1
-    if count > 24 :
+    if count > 50000 :
         break
     
-answer = count - 1
+answer = count
 print "Answer:", answer
