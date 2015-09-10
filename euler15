@@ -18,38 +18,43 @@ def find_goal(i,j,mark):
         #If mark reaches the end of a row, make that point False.
         if i == len(grid)-1:
             grid[j][i] = False
+            print "i", i
+            print "j", j
             print "Goal i"
-        #If mark reaches the end of a column, find the first True instance in that column and make it False.
-        elif j == len(grid)-1:
-            print "Goal j"
-            k = 0
-            while grid[k][i] == False:
-                k += 1
-            else:
-                grid[k][i] == False
-            #Make all points below or to the right True.
-            for x in range(k, len(grid)):
-                for y in range(i, len(grid)):
-                    grid[x][y] = True
         else:
-			#Move mark down column and test for edges again.
+            #Move mark down column and test for edges again.
             print "i",i
             print "j",j
             print "poops"
             j += 1
-            mark = grid[j][i]
-            find_goal(i,j,mark)
+            #If mark reaches the end of a column, find the first True instance in that column and make it False.
+            if j == len(grid)-1:
+                print "Goal j"
+                k = 0
+                while grid[k][i] == False:
+                    k += 1
+                else:
+                    grid[k][i] = False
+                    print "k",k
+                    print "i",i
+                    print "grid[0][2]", grid[0][2]
+                #Make all points below or to the right True.
+                for x in range(k+1, len(grid)):
+                    for y in range(i+1, len(grid)):
+                        print "x",x
+                        print "y",y
+                        grid[x][y] = True
+            else:
+                mark = grid[j][i]
+                find_goal(i,j,mark)
 
 while grid[0][0]:
     mark = grid[0][0]
     find_goal(0,0,mark)
+    print count
     count +=1
-    print count
-    if count > 23 :
+    if count > 24 :
         break
-    if not grid[len(grid)-1][0]:
-        print "Wobyboby",count
-        break
-else:
-    print count
-
+    
+answer = count - 1
+print "Answer:", answer
