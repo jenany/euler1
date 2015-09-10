@@ -1,4 +1,4 @@
-grid = [[True]*4 for i in range(4)]
+grid = [[True]*21 for i in range(21)]
 grid[3][3] = "Goal"
 
 mark = grid[0][0]
