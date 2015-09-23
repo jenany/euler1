@@ -1,0 +1,10 @@
+max = 20
+set = [[1]]
+
+for i in xrange(max):
+    set.append([1])
+    while len(set[-1]) < len(set[-2]):
+        set[-1].append(set[-1][-1] + set[-2][len(set[-1])])
+    set[-1].append(2*set[-1][-1])
+        
+print set[-1][-1]
