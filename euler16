@@ -1,0 +1,8 @@
+power = str(2**1000)
+sum = 0
+
+for x in power:
+    y = int(x)
+    sum += y
+
+print sum
