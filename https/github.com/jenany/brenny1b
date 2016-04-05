@@ -1,0 +1,7 @@
+fib = [1,1]
+
+while len(fib) < 35:
+    last_two_sum = fib[-1] + fib[-2]
+    fib.append(last_two_sum)
+    
+print fib[34]
